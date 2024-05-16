@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <style>
+      .one {
+        background-image: url(https://media.istockphoto.com/id/1026765734/photo/man-in-red-cap-t-shirt-giving-fast-food-order-isolated-on-yellow-background-male-employee.jpg?s=2048x2048&w=is&k=20&c=UvxTjnNWFc6XtkuWgkAKCfhCfW7RA1l8TS69SyzFkLg=);
+          background-color: #abad7ca1; /* Light gray background color */
+          padding: 20px; /* Add some padding */
+          border-radius: 10px; /* Add rounded corners */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+          margin-bottom: 20px; /* Add some space between rows */
+      }
+      .two {
+        background-image: url(https://img.freepik.com/free-photo/copy-space-chopsticks-tomatoes_23-2148242496.jpg?w=740&t=st=1708450770~exp=1708451370~hmac=36562c58cab9b4ca18384621ff5e43243f9e4f3f9288277ff4bb4f88d6ece309);
+          background-color: #abad7ca1; /* Light gray background color */
+          padding: 20px; /* Add some padding */
+          border-radius: 10px; /* Add rounded corners */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+          margin-bottom: 20px; /* Add some space between rows */
+      }
+      
+      .navbar {
+          background-color: #bc7400; 
+      }
+      
+      .navbar-brand,
+      .nav-link {
+          color: #fcfbfb !important; /* White text color for navbar items */
+      }
+  </style>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy House</title>
+    <!-- <base href="/EstoreWebApp/"> -->
+</head>
+<body>
+<div class="container">
+    <div class="row"><!----row 1 starts-->
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="/home2">Yummy-House</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home2">Home</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/cart">Cart</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/contact">Contact</a>
+                      </li>
+                      
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/registration">Register</a>
+                      </li>
+                      {% endif %}
+                      
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </div><!---row1 end-->

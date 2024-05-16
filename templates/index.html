@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="https://api.pizzahut.io/v1/content/en-in/in-1/images/deal/one-plus-one-personal-new.30f1f0ba375e72329429a299056336ad.1.jpg" class="d-block w-100" alt="Pizza Deal 1" height="300px">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="https://api.pizzahut.io/v1/content/en-in/in-1/images/discount/hut125.9e8c7de6f71f9ac4fa316f2d5c7366d5.1.jpg" class="d-block w-100" alt="Pizza Deal 2" height="300px">
+    </div>
+    <div class="carousel-item">
+      <img src="https://api.pizzahut.io/v1/content/en-in/in-1/images/deal/hut-meal-for-4-new.26a7a94226fbdc097a2cad2025a2b6cc.1.jpg" class="d-block w-100" alt="Pizza Deal 3" height="300px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="one">
+<div class="row"><!---row2 start-->
+    <div class="col-md-3">
+        <h5>Filter By category</h5>
+        <hr>
+        <p><a href="/home3" class="anchor">By All</a></p>
+        <p><a href="/catfilter/1" class="anchor">By Pizza</a></p>
+        <p><a href="/catfilter/2" class="anchor">By Burger</a></p>
+        <p><a href="/catfilter/3" class="anchor">By Cold-Drinks</a></p>
+        <h5>Filter By price Range</h5>
+        <hr>
+        <form action="/range">
+          <div class="mb-3">
+            <label for="one" class="form-label">Min:</label>
+            <input type="number" class="form-control" name="min" id="one" placeholder="enter min value">
+          </div>
+          <div class="mb-3">
+            <label for="two" class="form-label">Max:</label>
+            <input type="number" class="form-control" name="max" id="two" placeholder="enter max value">
+          </div>
+          <div class="mb-3">
+           <input type="submit" class="btn btn-danger" value="search">
+          </div>
+        </form>
+        <h5>Sort By Price </h5>
+        <hr>
+        <p><a href="/sort/0" class="anchor">Low to High</a></p>
+        <p><a href="/sort/1" class="anchor">High to low</a></p>
+    </div>
+    <div class="col-md-8">
+          <div class="row">
+            {% for x in products %}
+              <div class="col-md-4">
+                <div class="card" style="width: 100%;">
+                  <img src="{{x.pimage.url}}" class="card-img-top" alt="..." width="100%" height="190px">
+                  <div class="card-body">
+                    <h5 class="card-title">{{x.name}}</h5>
+                    <p class="card-text">Rs.{{x.price}}</p>
+                    {% if x.cat == 1 %}
+                    <p class="card-text">Pizza</p>
+                    {% elif x.cat == 2 %}
+                    <p class="card-text">Burger</p>
+                    {% else %}
+                    <p class="card-text">Cold-Drink</p>
+                    {% endif %}
+                    <a href="/pd/{{x.id}}" class="btn btn-primary">See Details</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+             
+              
+              
+</div>
+</div><!---row2 end-->
+
+{% endblock 'main' %}
